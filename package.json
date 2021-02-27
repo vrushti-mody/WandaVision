@@ -1,0 +1,30 @@
+{
+  "name": "study-matcher",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bad-words": "^3.0.3",
+    "cookie-parser": "~1.4.4",
+    "custom-env": "^2.0.1",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "^1.6.3",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0",
+    "bcrypt": "^5.0.0",
+    "connect-mongo": "^3.2.0",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.11.0",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-local": "^1.0.0"
+  }
+}

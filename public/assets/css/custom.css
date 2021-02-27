@@ -1,0 +1,25 @@
+.login-with-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.g-signin2 {
+  padding: 20px;
+}
+
+.user-points {
+  display: inline;
+  margin-right: 60px;
+}
+
+.points-icon {
+  color: yellow;
+}
+
+.points-icon > p {
+  margin-left: 8px;
+  display: inline;
+  color: white;
+  font-weight: bolder;
+}

@@ -1,0 +1,152 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('study-matcher:server');
+var http = require('http');
+const socketio = require('socket.io');
+const Filter=require('bad-words')
+const{generateMessage}= require('./utils/messages');
+const {addUser,getUser, removeUser, getUsersInRoom, getRoomDescription, numberOfUsersInRoom, getMeet, addMeet} = require('./utils/users')
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+const io = socketio(server)
+const count = 0
+io.on('connection',(socket)=>{
+  console.log('Connected')
+
+
+  socket.on('join',({username,room,email,userid, meet},callback)=>{
+    const {error,user}=addUser({id:socket.id,username,room,email, userid})
+    addMeet({room,meet})
+    if(error){
+      return callback(error)
+    }
+      socket.join(user.room)
+     const number = numberOfUsersInRoom(user.room)
+     const description = getRoomDescription(user.room)
+    const meet1 = getMeet(room)
+    console.log(meet1)
+     // There are ${number} users online in this session. If you are the only one here, please wait for other users to show up.
+    socket.emit('message',
+      generateMessage(`Welcome to your study room!
+        Preferences: ` + description.subject + `
+        Mic: ` + capitalizeFirstLetter(description.mic) + `
+        Video: ` + capitalizeFirstLetter(description.video) + `
+        Meet Link: ` + meet1.meet + `
+        Chat with your study partner(s) below. Happy Working!`,'Connectify')
+    )
+    socket.broadcast.to(user.room).emit('message',generateMessage(`${username} has joined`,'Wanda bot','#'))
+    io.to(user.room).emit('roomdata',{
+      room:user.room,
+      users:getUsersInRoom(user.room)
+    })
+    callback()
+  })
+
+
+  socket.on('send',(msg,callback)=>{
+    const filter = new Filter ()
+    const user=getUser(socket.id)
+    if (filter.isProfane(msg)){
+      return callback ('Profanity is not allowed')
+    }
+    io.to(user.room).emit('message',generateMessage(msg,user.username,user.userid))
+    callback();
+  })
+  socket.on('disconnect',()=>{
+    const user=removeUser(socket.id)
+    if(user){
+      io.to(user.room).emit('message',generateMessage(`${user.username} has left`,'Wanda Bot','#'))
+      io.to(user.room).emit('roomdata',{
+        room:user.room,
+        users:getUsersInRoom(user.room)
+      })
+    }
+  })
+})
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
