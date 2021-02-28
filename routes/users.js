@@ -66,7 +66,9 @@ router.get('/upload',isValidUser, async function(req,res,next){
 
 router.post('/upload', async function(req,res,next){
     let books = req.body.books.split(",")
+    let blognames = req.body.blognames.split(",")
     let blogs = req.body.blogs.split(",")
+    let videonames = req.body.videonames.split(",")
     let videos = req.body.videos.split(",")
     let userid = req.body.userid
   var post= new Post({
@@ -75,11 +77,13 @@ router.post('/upload', async function(req,res,next){
     userid:req.body.userid,
     books: books,
     blogs: blogs,
-    videos: videos
+    blognames: blognames,
+    videos: videos,
+    videonames: videonames
   });
   try{
     doc=await post.save()
-    return res.redirect(`/profile/${userid}`)
+    return res.redirect(`/users/profile/${userid}`)
     //return res.status(201).json(doc);
   }
   catch(err){
@@ -101,6 +105,7 @@ function isValidUser(req,res,next){
 router.get('/nexus',isValidUser, async function(req,res,next){
   let user = await User.findOne({_id:req.user._id})
   let posts = await Post.find()
+  console.log(posts)
   
   res.render('nexus',{user,posts})
 })
