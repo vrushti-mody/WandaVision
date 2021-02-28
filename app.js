@@ -12,7 +12,9 @@ const passport = require('passport');
 var MongoStore = require('connect-mongo')(session);
 require('./passportconfig')
 var app = express();
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}).then(db => {
+  console.log("Database connected");
+});
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

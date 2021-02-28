@@ -1,18 +1,4 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
 
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html>
 
@@ -24,37 +10,19 @@
   <title>Wanda</title>
   <!-- Favicon -->
   <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
-
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
   <link rel="stylesheet" href="/assets/vendor/nucleo/css/nucleo.css" type="text/css">
   <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="/assets/css/argon.css?v=1.2.0" type="text/css">
-  <link rel="stylesheet" href="/assets/css/custom.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/custom.css">
   <style>
-
-    .container1 {
-  border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-
-.container1::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-
-
-.time-right {
-  float: right;
-  color: #aaa;
-}
+    body{
+      overflow-y: visible !important;
+    }
   </style>
 </head>
 
@@ -80,11 +48,11 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/users/nexus">
-                <i class="ni ni-atom text-primary"></i>
-                <span class="nav-link-text">Nexus Resources</span>
-              </a>
-            </li>
+                <a class="nav-link active" href="/users/nexus">
+                  <i class="ni ni-atom text-primary"></i>
+                  <span class="nav-link-text">Nexus Resources</span>
+                </a>
+              </li>
             <li class="nav-item">
               <a class="nav-link" href="/users/upload">
                 <i class="ni ni-spaceship text-pink"></i>
@@ -92,12 +60,12 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/users/vision">
-                <i class="ni ni-planet text-orange"></i>
-                <span class="nav-link-text">Vision</span>
-              </a>
-            </li>
-            <li class="nav-item active">
+                <a class="nav-link" href="/users/vision">
+                  <i class="ni ni-planet text-orange"></i>
+                  <span class="nav-link-text">Vision</span>
+                </a>
+              </li>
+            <li class="nav-item">
               <a class="nav-link" href="/users/profile/<%= user._id %>">
                 <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Profile</span>
@@ -116,13 +84,14 @@
               </a>
             </li>
 
-        </ul>
-        <!-- Divider -->
+          </ul>
+          <!-- Divider -->
 
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
     <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
@@ -151,8 +120,9 @@
                 <div class="media align-items-center">
 
                   <div class="media-body  ml-2  d-none d-lg-block">
-                    
-                    <span class="mb-0 text-sm  font-weight-bold"><%= user.displayName %></span>
+
+
+                    <span class="mb-0 text-sm  font-weight-bold"><%= user.name %></span>
                   </div>
                 </div>
               </a>
@@ -160,7 +130,7 @@
                 <div class="dropdown-header noti-title">
                   <h6 class="text-overflow m-0">Welcome!</h6>
                 </div>
-                <a href="/user/profile/<%- user.email %>" class="dropdown-item">
+                <a href="/user/profile/<%- user._id %>" class="dropdown-item">
                   <i class="ni ni-single-02"></i>
                   <span>My profile</span>
                 </a>
@@ -184,63 +154,14 @@
         </div>
       </div>
     </nav>
-  <!-- Main content -->
-  <div class="header pb-6 d-flex align-items-center" style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
-    <!-- Mask -->
-    <span class="mask bg-gradient-default opacity-8"></span>
-    <!-- Header container -->
-    <div class="container-fluid d-flex align-items-center">
-      <div class="row">
-        <div class="col-lg-7 col-md-10">
-          <h1 class="display-2 text-white"> <%- user.name%> says Hello!</h1>
-          <p class="text-white mt-0 mb-5">  <%- user.name%> has made various helpful subject guides. You can view them here</p>
-        
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Page content -->
-  <div class="container-fluid mt--6">
-    <div class="row">
-      <div class="col-xl-4 order-xl-2">
-        <div class="card card-profile">
-          <img src="/assets/img/theme/img-1-1000x600.jpg" alt="Image placeholder" class="card-img-top">
-          <div class="row justify-content-center">
-            <div class="col-lg-3 order-lg-2">
-              
-            </div>
-          </div>
-          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-            <div class="d-flex justify-content-between">
-           
-              <a href="mailto:<%- user.email%>" class="btn btn-sm btn-default float-right ">Connect</a>
-             
-            </div>
-          </div>
-          <div class="card-body pt-0">
-           
-            <div class="text-center">
-              <h5 class="h3">
-                <%- user.name%><span class="font-weight-light"></span>
-              </h5>
-              <br>
-              <p><bold>User Expertise/ Preferences</bold></p>
-             <% for (let i =0 ; i< user.preferences.length; i++){%>
-              <span><%- user.preferences[i]%>, </span>
-            <% } %>
-            <span>etc</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-8 order-xl-1">
-        <div class="card" >
-          <div class="card-header">
-            <div class="row align-items-center">
-              <div class="col-12">
-                <h1 class="mb-0">Posts </h1>
-                <br>
-                <% for (let i = posts.length -1 ; i>=0 ; i--){ %>
+
+    <!-- Header -->
+    <div class="header pb-12">
+      <div class="container-fluid">
+        <br>
+        <div class="row">
+            <% for (let i = posts.length -1 ; i>=0 ; i--){ %>
+                <div class= "col-md-4">
                 <div class=" card" style="width: 100%;" >
                  
                   <div class="card-body"   style="width: 100%;" >
@@ -265,48 +186,48 @@
                   </div>
                   
                 </div>
-                <% } %>
-              </div>
-              
             </div>
-          </div>
-         
-
+                <% } %>
 
         </div>
-      </div>
     </div>
     </div>
-  </div>
-  
-        
-    <!-- Header -->
-    <!-- Header -->
-   
+
+      <!-- Footer -->
+      <footer class="footer pt-0">
+        <div class="row mx-0 align-items-center justify-content-lg-between">
+          <div class="col-lg-6">
+            <div class="copyright text-center  text-lg-left  text-muted">
+              &nbsp  &copy; 2020 <a href="/" class="font-weight-bold ml-1" target="_blank">Wanda</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+
+              <li class="nav-item">
+                <a href="#" class="nav-link" target="_blank">Terms & Conditions</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" target="_blank">Privacy Policy &nbsp</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
   <!-- Argon Scripts -->
   <!-- Core -->
-  
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/assets/js/chat.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js"></script>
-  <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/22cc5bbe/src/simplequerystring.min.js"></script>
-    <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Optional JS -->
-    <script src="/assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="/assets/vendor/chart.js/dist/Chart.extension.js"></script>
-    <!-- Argon JS -->
-    <script src="/assets/js/argon.js?v=1.2.0"></script>
-  </body>
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="/assets/vendor/js-cookie/js.cookie.js"></script>
+  <script src="/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+  <!-- Optional JS -->
+  <script src="/assets/vendor/nouislider/distribute/nouislider.min.js"></script>
+  <script src="/assets/js/landing.js"></script>
+  <!-- Argon JS -->
+  <script src="/assets/js/argon.min.js?v=1.2.0"></script>
+</body>
 
 </html>
-
-
-
-
-
