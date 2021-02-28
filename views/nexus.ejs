@@ -173,12 +173,12 @@
                     <br>
                     <p style="margin-bottom: 1px; margin-top: 10px; font-size: 21px;">Blogs</p>
                     <% for (let j = 0 ; j< posts[i].blogs.length ; j++){ %>
-                      <a href="<%- posts[i].blogs[j]%>" class="btn btn-outline-dark">Blog <%- j+1 %></a>
+                      <a href="<%- posts[i].blogs[j]%>" class="btn btn-outline-dark btn-block"><%- posts[i].blognames[j]%></a>
                     <% } %>
                     <br>
                     <p style="margin-bottom: 1px; margin-top: 10px; font-size: 21px;">Videos</p>
                     <% for (let j = 0 ; j< posts[i].blogs.length ; j++){ %>
-                      <a href="<%- posts[i].videos[j]%>" class="btn btn-outline-info">Video <%- j+1 %></a>
+                      <a href="<%- posts[i].videos[j]%>" class="btn btn-outline-info btn-block"><%- posts[i].videonames[j]%></a>
                     <% } %>
                     
                     <hr>
