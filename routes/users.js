@@ -32,6 +32,12 @@ router.get('/settings', async function(req,res,next){
   res.render('settings',{user, preference})
 })
 
+// Get Vision Bot
+router.get('/vision', async function(req,res,next){
+  let user = await User.findOne({_id:req.user._id})
+  res.render('vision',{user})
+})
+
 
 // Get Settings Page
 router.post('/settings', async function(req,res,next){
