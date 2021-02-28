@@ -222,11 +222,38 @@
         </div>
       </div>
       <div class="col-xl-8 order-xl-1">
-        <div class="card">
+        <div class="card" >
           <div class="card-header">
             <div class="row align-items-center">
-              <div class="col-8">
-                <h3 class="mb-0">Posts </h3>
+              <div class="col-12">
+                <h1 class="mb-0">Posts </h1>
+                <br>
+                <% for (let i = posts.length -1 ; i>=0 ; i--){ %>
+                <div class=" card" style="width: 100%;" >
+                 
+                  <div class="card-body"   style="width: 100%;" >
+                    <h1 class="card-title"><%- posts[i].title %></h1>
+                    <p style="margin-bottom: 1px;  margin-top: 10px; font-size: 21px;">Books</p>
+                    <% for (let j = 0 ; j< posts[i].books.length ; j++){ %>
+                    <span style="font-family: 'Courier New', Courier, monospace; font-size: 17px;" class="card-text"><%- posts[i].books[j] %> </span>
+                    <% } %>
+                    <br>
+                    <p style="margin-bottom: 1px; margin-top: 10px; font-size: 21px;">Blogs</p>
+                    <% for (let j = 0 ; j< posts[i].blogs.length ; j++){ %>
+                      <a href="<%- posts[i].blogs[j]%>" class="btn btn-outline-dark">Blog <%- j+1 %></a>
+                    <% } %>
+                    <br>
+                    <p style="margin-bottom: 1px; margin-top: 10px; font-size: 21px;">Videos</p>
+                    <% for (let j = 0 ; j< posts[i].blogs.length ; j++){ %>
+                      <a href="<%- posts[i].videos[j]%>" class="btn btn-outline-info">Video <%- j+1 %></a>
+                    <% } %>
+                    
+                    <hr>
+                    <p style="margin-bottom: 1px;">By <a href="/users/profile/<%- posts[i].userid %>"><%- posts[i].name %></a></p>
+                  </div>
+                  
+                </div>
+                <% } %>
               </div>
               
             </div>

@@ -12,18 +12,7 @@ router.get('/',isValidUser, async(req,res,next) => {
   res.render('landing',{user})
 })
 
-function isValidUser(req,res,next){
-  if(req.isAuthenticated()){
-    next()
-  }
-  else{
-    console.log('Unauthorized request')
-    res.redirect('/login')
-  //return res.status(401).json({message:'Unauthorized Request'});
-  }
-}
-// Get Settings Page
-router.get('/settings', async function(req,res,next){
+router.get('/settings', isValidUser,async function(req,res,next){
   let user = await User.findOne({_id:req.user._id})
   let preference = ''
   for (let i =0; i < user.preferences.length; i++){
@@ -55,12 +44,55 @@ router.post('/settings', async function(req,res,next){
   return res.redirect('/users/settings')
 })
 
-router.get('/profile/:id', async function(req,res,next){
+router.get('/profile/:id',isValidUser, async function(req,res,next){
   let id = req.params.id
   let user = await User.findOne({_id:id})
-  
-  res.render('profile',{user})
+  let posts = await Post.find({userid:id})
+  res.render('profile',{user, posts})
+  console.log(posts)
 })
+
+router.get('/upload',isValidUser, async function(req,res,next){
+  let user = await User.findOne({_id:req.user._id})
+  
+  res.render('upload',{user})
+})
+
+router.post('/upload', async function(req,res,next){
+    let books = req.body.books.split(",")
+    let blogs = req.body.blogs.split(",")
+    let videos = req.body.videos.split(",")
+    let userid = req.body.userid
+  var post= new Post({
+    name:req.body.name,
+    title:req.body.title,
+    userid:req.body.userid,
+    books: books,
+    blogs: blogs,
+    videos: videos
+  });
+  try{
+    doc=await post.save()
+    return res.redirect(`/profile/${userid}`)
+    //return res.status(201).json(doc);
+  }
+  catch(err){
+    return res.redirect('/upload')
+    //return res.status(501).json(err);
+  }
+})
+
+function isValidUser(req,res,next){
+  if(req.isAuthenticated()){
+    next()
+  }
+  else{
+    console.log('Unauthorized request')
+    res.redirect('/login')
+  //return res.status(401).json({message:'Unauthorized Request'});
+  }
+}
+
 
 module.exports = router;
 

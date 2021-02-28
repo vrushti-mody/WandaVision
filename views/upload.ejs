@@ -131,7 +131,7 @@
                 <div class="dropdown-header noti-title">
                   <h6 class="text-overflow m-0">Welcome!</h6>
                 </div>
-                <a href="/user/profile/<%- user.email %>" class="dropdown-item">
+                <a href="/user/profile/<%- user._id %>" class="dropdown-item">
                   <i class="ni ni-single-02"></i>
                   <span>My profile</span>
                 </a>
@@ -161,37 +161,36 @@
       <div class="container-fluid">
         <br>
         <br>
-        <h3 style="font-family: Georgia, 'Times New Roman', Times, serif; "><i>"When no one is around to say anything about an incomplete task, it’s easy to push it to the next day and the next week"</i></h3>
+        <h3 style="font-family: Georgia, 'Times New Roman', Times, serif; "><i>"When you dream of conquering the world and you fill your agenda with daunting projects, it’s often necessary to equip yourself with a large mug of coffee and with the right people. Any successful project, be it big or small, has one thing at its core: effective collaboration, and you can achieve it with knowledge sharing."</i></h3>
         <p>
-          1. Share a Sense of Wonder <br>
-          2. Be Grateful for Your Success <br>
-          3. Don’t Avoid the Achievement <br>
-          4. Be Personal <br>
-          5. Don’t Share All of Your Achievements <br>
+          1. Share valid resources <br>
+          2. Links should be specific to the topic <br>
+          3. Avoid using Shortforms <br>
+          4. Keep the title as accurate as possible <br>
       </p>
         <form action="/users/upload" method="POST">
           <div class="row">
     <div class="form-group col-md-12">
-        <label for="example-text-input" class="form-control-label">Content Type</label>
-        <select name="type" id="type" class="form-control selectpicker" required>
-          <option>Milestone</option>
-          <option>Thought</option>
-          <option>Motivation</option>
-          <option>Experience</option>
-          <option>Other</option>
-        </select>
+      <label for="example-text-input" class="form-control-label" rows="5">Title</label>
+      <input type="text" name="title" id="title" class="form-control" placeholder="Eg. Getting Started with React">
+    </input>
     </div>
     <div class="form-group col-md-12">
-      <label for="example-text-input" class="form-control-label" rows="5">Post Content</label>
-      <textarea name="content" id="content" class="form-control">
-    
-      </textarea>
-      <!-- <input class="form-control" type="text" placeholder="Enter subject here..(No short forms, capitalise the first letters)" name="subject" id="subject" required /> -->
-  </div>
-</div>
+      <label for="example-text-input" class="form-control-label" rows="5">Books</label>
+      <textarea name="books" id="books" class="form-control" placeholder="The Road to React, React in Action (Seperate multiple books with commas)"></textarea>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="example-text-input" class="form-control-label" rows="5">Blogs</label>
+      <textarea name="blogs" id="blogs" class="form-control" placeholder="https://www.sanity.io/guides/build-your-first-blog-using-react (Seperate multiple blogs with commas)"></textarea>
+    </div>
+    <div class="form-group col-md-12">
+      <label for="example-text-input" class="form-control-label" rows="5">Videos</label>
+      <textarea name="videos" id="videos" class="form-control" placeholder="https://www.youtube.com/watch?v=pCA4qpQDZD8 (Seperate multiple videos with commas)"></textarea>
+    </div>
   <div class="form-group col-md-12">
     <center>
-      <input class="form-control" type="hidden"  name="username" id="username"  value = "<%= user.name %>" required />
+      <input class="form-control" type="hidden"  name="name" id="name"  value = "<%= user.name %>" required />
+      <input class="form-control" type="hidden"  name="userid" id="userid"  value = "<%= user._id %>" required />
     <button class="btn btn-icon btn-primary" type="submit">
       <span class="btn-inner--icon"><i class="ni ni-favourite-28"></i>&nbsp Submit</span>
     </button>
@@ -199,23 +198,14 @@
 </div>
 </form>
       </div>
-  
-    <!-- Page content -->
-   
     </div>
-    <br>
-    <br> 
-    <br>
-    <br>
-    <br>
 
-    <br>
       <!-- Footer -->
       <footer class="footer pt-0">
         <div class="row align-items-center justify-content-lg-between">
           <div class="col-lg-6">
             <div class="copyright text-center  text-lg-left  text-muted">
-              &nbsp  &copy; 2020 <a href="/" class="font-weight-bold ml-1" target="_blank">Connectify</a>
+              &nbsp  &copy; 2020 <a href="/" class="font-weight-bold ml-1" target="_blank">Wanda</a>
             </div>
           </div>
           <div class="col-lg-6">
