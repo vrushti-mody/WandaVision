@@ -1,6 +1,5 @@
-<!-- PROJECT LOGO -->
 <p align="center">
-
+    <img src="https://i.pinimg.com/originals/ae/6a/a0/ae6aa0d36f22f94548e2dcf7b7e5cba6.png" width="200" alt="Logo">
   <h1 align="center">WANDA</h1>
 
   <p align="center">
@@ -9,12 +8,17 @@
   </p>
 </p>
 
+[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](https://github.com/vrushti-mody/WandaVision/pulls)
+[![Issues](https://img.shields.io/github/issues-raw/vrushti-mody/WandaVision)](https://github.com/vrushti-mody/WandaVision/issues)
+[![Contributors](https://img.shields.io/github/contributors/vrushti-mody/WandaVision)]()
+![Languages](https://img.shields.io/github/languages/count/vrushti-mody/WandaVision)
+
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
-- [Why Wanda Vision?](#why-wana-vision)
-  - [About the Project](#about-the-project) 
+- [Why Wanda Vision?](#why-wanda-vision)
+  - [About the Project](#about-the-project)
 - [Built With](#built-with)
 - [Development](#development)
   - [Prerequisites](#prerequisites)
@@ -33,11 +37,12 @@
 We all become really busy with what can feel like the relentless demands of academic study and life. Many of us recognise the privilege we have to access education, but that is little comfort when we feel isolated and despondent. Wanda is built on the idea to decrease isolation and motivate us all not only to progress our work but know we can do so while our simple presence supports others. We are not alone.
 
 ### What we offer?
+
 - The Scarlett Witch (The Study Room)
 - Nexus (The Resourceful Potions)
 - Vision (The AI-powered Bot)
 
-*What is certain, is that one small action in the world has a definite ripple effect. So we all perhaps need to be more active.*
+_What is certain, is that one small action in the world has a definite ripple effect. So we all perhaps need to be more active._
 
 ## About The Project
 
@@ -54,7 +59,7 @@ To keep yourself in the race for this ever-growing field, you need to keep on le
 #### 3. Vision
 
 As an evolving field of study at the forefront of technological progress and innovation, computer science is a topic with tremendous significance in industry and academia. Getting stuck in programming is quite normal for all the developers. If you are ever stuck somewhere, we've always got a Vision for you! <br>
-*"I just feel you." ~Vision*
+_"I just feel you." ~Vision_
 
 ### Built With
 
@@ -135,8 +140,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Contact
 
-- Vidhi Mody <[@vidhi-mody](https://github.com/vidhi-mody),  vidhimody6@gmail.com>
-- Vrushti Mody <[@vrushti-mody](https://github.com/vrushti-mody),  vrushtimody6@gmail.com>
+- Vidhi Mody <[@vidhi-mody](https://github.com/vidhi-mody), vidhimody6@gmail.com>
+- Vrushti Mody <[@vrushti-mody](https://github.com/vrushti-mody), vrushtimody6@gmail.com>
 
 Project Link: [https://github.com/vrushti-mody/WandaVision](https://github.com/vrushti-mody/WandaVision)
-
