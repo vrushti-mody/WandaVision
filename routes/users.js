@@ -92,7 +92,12 @@ function isValidUser(req,res,next){
   //return res.status(401).json({message:'Unauthorized Request'});
   }
 }
-
+router.get('/nexus',isValidUser, async function(req,res,next){
+  let user = await User.findOne({_id:req.user._id})
+  let posts = await Post.find()
+  
+  res.render('nexus',{user,posts})
+})
 
 module.exports = router;
 
