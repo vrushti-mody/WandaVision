@@ -81,7 +81,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Clone the repo and hit yarn install.
+Clone the repo and hit npm install.
 
 - npm
 
