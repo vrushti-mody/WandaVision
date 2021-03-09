@@ -109,7 +109,6 @@ npm install
 GOOGLE_CLIENT_ID = “YOUR GOOGLE CLIENT ID”
 GOOGLE_CLIENT_SECRET = “YOUR CLIENT SECRET”
 CALLBACK_URL = ”YOUR CALLBACK URL"
-
 MONGODB_URI = “YOUR MONGODB URI”
 ```
 
@@ -154,3 +153,5 @@ Distributed under the Apache 2.0 License. See `LICENSE.md` for more information.
 - Vrushti Mody <[@vrushti-mody](https://github.com/vrushti-mody), vrushtimody6@gmail.com>
 
 Project Link: [https://github.com/vrushti-mody/WandaVision](https://github.com/vrushti-mody/WandaVision)
+
+Try out the project [`here`](https://wanda-vision.herokuapp.com/)
