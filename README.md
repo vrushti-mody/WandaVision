@@ -81,7 +81,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Clone the repo and hit yarn install.
+Clone the repo and hit npm install.
 
 - npm
 
@@ -136,6 +136,8 @@ Contributions are what make the open source community such an amazing place to b
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+> *Make sure to go through the [Code of Conduct](CODE_OF_CONDUCT.md) before contributing!*
 
 
 <!-- LICENSE -->
